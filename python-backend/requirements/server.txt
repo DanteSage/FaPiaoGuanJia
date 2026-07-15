@@ -1,0 +1,2 @@
+PyInstaller==6.19.0
+pywin32==311; sys_platform == "win32"

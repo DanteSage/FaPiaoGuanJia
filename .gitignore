@@ -1,0 +1,74 @@
+# Node
+node_modules/
+frontend/node_modules/
+npm-debug.log*
+
+# Build outputs
+dist/
+build/
+release/
+frontend/dist/
+frontend/release/
+frontend/.cache/
+frontend/coverage/
+frontend/.npm-cache/
+java/target/
+java/**/target/
+java/**/bin/
+
+# IDE
+.idea/
+.vscode/
+.cursor/
+.verdent/
+*.swp
+*.swo
+
+# Local dependency caches
+.m2/
+
+# Local development instructions
+AGENTS.md
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.local
+.deps/
+.deps-dev/
+
+# Logs
+*.log
+.coverage
+coverage.xml
+.pytest_cache/
+
+# Large files and build outputs
+*.exe
+*.class
+*.db
+*.db-journal
+frontend/release/
+output/
+outputs/
+uploads/
+temp/
+.tmp/
+jre/
+python-backend/build/
+python-backend/dist/
+python-backend/files/
+python-backend/images/
+python-backend/logs/
+python-backend/outputs/
+python-backend/vendor/
+python-backend/config/
+python-backend/*.db
+python-backend/.venv/
+python-backend/__pycache__/
+python-backend/**/__pycache__/
+python-backend/.tmp-pip/
+temp-render-*.png

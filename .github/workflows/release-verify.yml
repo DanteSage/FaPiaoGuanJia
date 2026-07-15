@@ -1,0 +1,47 @@
+name: Release Verify
+
+on:
+  push:
+    branches:
+      - "release/**"
+  workflow_dispatch:
+
+jobs:
+  build-release:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: maven
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: |
+            python-backend/requirements/base.txt
+            python-backend/requirements/dev.txt
+            python-backend/requirements/ocr.txt
+            python-backend/requirements/ofd.txt
+            python-backend/requirements/server.txt
+      - run: npm --prefix frontend ci
+      - run: python -m pip install -r python-backend/requirements/base.txt -r python-backend/requirements/dev.txt -r python-backend/requirements/ocr.txt -r python-backend/requirements/ofd.txt -r python-backend/requirements/server.txt
+      - run: npm --prefix frontend run lint
+      - run: npm --prefix frontend run test:unit
+      - run: npm --prefix frontend run coverage
+      - run: npx --prefix frontend playwright install chromium
+      - run: npm --prefix frontend run test:e2e
+      - run: python -m black --check python-backend
+      - run: python -m flake8 python-backend
+      - run: python -m pytest --cov=python-backend/src --cov-report=term-missing --cov-fail-under=60 python-backend/tests/unit python-backend/tests/integration
+      - run: node scripts/build-release.js

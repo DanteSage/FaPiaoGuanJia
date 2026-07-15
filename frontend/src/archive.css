@@ -1,0 +1,2596 @@
+                                               
+                           
+                                                  
+
+                                                               
+.archivePage {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr) minmax(0, 500px);
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "filter filter detail"
+    "folder list   detail";
+  gap: 12px;
+  height: 100%;
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+}
+
+                          
+.archiveFolderPanel {
+  grid-area: folder;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.archiveFolderPanel > .folderTree {
+  flex: 1;
+  min-height: 0;
+}
+
+.archiveFolderPanel > .tagList {
+  flex-shrink: 0;
+  max-height: 40%;
+  overflow-y: auto;
+}
+
+.archiveFolderPanel .panelHeader {
+  padding: 12px;
+}
+
+.archiveFolderPanel .panelHeaderRight .iconBtn {
+  padding: 4px;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.archiveFolderPanel .panelHeaderRight .iconBtn:hover {
+  color: var(--primary);
+  background: var(--panel2);
+}
+
+                              
+.archiveListPanel {
+  grid-area: list;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 0;
+}
+
+                                                                
+.archiveFilterPanel {
+  grid-area: filter;
+}
+
+.archiveFilterPanel .panelHeader {
+  gap: 12px;
+}
+
+.archiveFilterPanel .panelHeaderLeft {
+  flex-shrink: 0;
+}
+
+.archiveFilterPanel .filterPanel {
+  border-top: none;
+  margin-top: 0;
+}
+
+.archiveFilterPanel .filterPanelHeader {
+  display: none;
+}
+
+.archiveFilterPanel .filterPanelBody {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.archiveFilterPanel .filterSection {
+  margin-bottom: 0;
+  min-width: auto;
+}
+
+                                            
+.filterRowGroup {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.filterRowGroup .filterSection {
+  min-width: auto;
+}
+
+                                          
+.filterRowGroup .filterDateRange input {
+  width: 120px;
+}
+
+.filterRowGroup .filterAmountRange input {
+  width: 90px;
+}
+
+                             
+.filterSectionTypes {
+  width: 100%;
+}
+
+.filterSectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.filterClearTypeBtn {
+  padding: 2px 8px;
+  font-size: 11px;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.filterClearTypeBtn:hover {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.filterTypeChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filterTypeChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  font-size: 12px;
+  background: var(--panel2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.filterTypeChip:hover {
+  border-color: var(--primary);
+  background: rgba(106, 166, 255, 0.08);
+}
+
+.filterTypeChip.active {
+  background: rgba(106, 166, 255, 0.15);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.filterTypeChip.active .filterTypeIcon {
+  color: var(--primary);
+}
+
+.filterTypeIcon {
+  display: flex;
+  align-items: center;
+  color: var(--muted);
+  transition: color 0.15s;
+}
+
+.filterTypeLabel {
+  white-space: nowrap;
+}
+
+.filterTypeCount {
+  font-size: 10px;
+  padding: 1px 6px;
+  background: rgba(var(--fg-rgb), 0.1);
+  border-radius: 10px;
+  color: var(--muted);
+  margin-left: 2px;
+}
+
+.filterTypeChip.active .filterTypeCount {
+  background: rgba(106, 166, 255, 0.2);
+  color: var(--primary);
+}
+
+                                                                                        
+.archiveMain {
+  display: contents;
+}
+
+                                                                 
+.archiveRightPanel {
+  grid-area: detail;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 0;
+}
+
+                                 
+.archiveFilterPanel .panelHeaderRight {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.archiveFilterPanel .panelHeaderRight > * {
+  height: 32px;
+  box-sizing: border-box;
+}
+
+                        
+.archiveFilterPanel .toolbarInput {
+  width: 160px;
+  height: 32px;
+  padding: 0 12px;
+  font-size: 13px;
+  line-height: 30px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--text);
+  outline: none;
+  box-sizing: border-box;
+}
+
+.archiveFilterPanel .toolbarInput:focus {
+  border-color: var(--primary);
+}
+
+.archiveFilterPanel .toolbarInput::placeholder {
+  color: var(--muted);
+}
+
+                        
+.customSelect {
+  position: relative;
+  min-width: 140px;
+  height: 32px;
+}
+
+.customSelect .customSelectTrigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  height: 32px;
+  padding: 0 12px;
+  font-size: 13px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--text);
+  cursor: pointer;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.customSelect .customSelectTrigger:hover {
+  border-color: var(--primary);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.archiveFilterPanel .panelHeaderRight button {
+  height: 32px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.customSelectTrigger svg {
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+.customSelectDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 4px;
+  background: #1a1f2e;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  z-index: 100;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.customSelectOption {
+  padding: 10px 12px;
+  font-size: 13px;
+  color: var(--text);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.customSelectOption:hover {
+  background: rgba(var(--fg-rgb), 0.08);
+}
+
+.customSelectOption.active {
+  background: var(--primary);
+  color: #fff;
+}
+
+.archiveCount {
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.viewModeToggle {
+  display: flex;
+  gap: 2px;
+  background: var(--panel);
+  border-radius: 6px;
+  padding: 2px;
+}
+
+.viewModeToggle button {
+  padding: 6px 8px;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  color: var(--muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.viewModeToggle button:hover {
+  color: var(--text);
+  background: var(--panel2);
+}
+
+.viewModeToggle button.active {
+  color: var(--primary);
+  background: var(--panel2);
+}
+
+                  
+.archiveListBody {
+  flex: 1;
+  overflow: auto;
+  padding: 12px;
+}
+
+                                               
+                     
+                                                  
+
+.folderTree {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 0;
+}
+
+.folderSection {
+  margin-bottom: 16px;
+}
+
+.folderSectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  margin-bottom: 4px;
+}
+
+.folderSectionCollapsible {
+  cursor: pointer;
+  border-radius: 6px;
+  margin: 0 8px 4px;
+  padding: 8px;
+}
+
+.folderSectionCollapsible:hover {
+  background: var(--panel2);
+}
+
+.folderSectionHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.folderSectionChevron {
+  display: flex;
+  align-items: center;
+  color: var(--muted);
+  transition: transform 0.2s;
+  transform: rotate(-90deg);
+}
+
+.folderSectionChevron.expanded {
+  transform: rotate(0deg);
+}
+
+.folderSectionTitle {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0 12px;
+  margin-bottom: 4px;
+}
+
+.folderSectionHeader .folderSectionTitle {
+  padding: 0;
+  margin: 0;
+}
+
+.folderAddBtn {
+  padding: 4px;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.folderAddBtn:hover {
+  color: var(--primary);
+  background: var(--panel2);
+}
+
+.folderItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  margin: 0 8px;
+  transition: background 0.15s;
+}
+
+.folderItem:hover {
+  background: var(--panel2);
+}
+
+.folderItemActive {
+  background: var(--panel2);
+  color: var(--primary);
+}
+
+                          
+.folderItemDragOver {
+  background: rgba(106, 166, 255, 0.15);
+  border: 2px dashed var(--primary);
+  border-radius: 6px;
+}
+
+.folderIcon {
+  display: flex;
+  align-items: center;
+  color: var(--muted);
+}
+
+.folderItemActive .folderIcon {
+  color: var(--primary);
+}
+
+.folderName {
+  flex: 1;
+  min-width: 0;
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.folderCount {
+  flex-shrink: 0;
+  font-size: 11px;
+  color: var(--muted);
+  background: var(--panel);
+  padding: 2px 6px;
+  border-radius: 10px;
+  transition: opacity 0.15s;
+}
+
+.folderItem:hover .folderCount {
+  opacity: 0;
+}
+
+.folderMoreBtn {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  padding: 4px;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.15s, background 0.15s, color 0.15s;
+}
+
+.folderItem:hover .folderMoreBtn {
+  opacity: 1;
+}
+
+.folderMoreBtn:hover {
+  color: var(--text);
+  background: var(--panel);
+}
+
+.folderEmpty {
+  padding: 16px 12px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.folderEmptyBtn {
+  display: block;
+  margin: 8px auto 0;
+  padding: 6px 12px;
+  font-size: 12px;
+  background: var(--panel2);
+  border: none;
+  border-radius: 4px;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.folderEmptyBtn:hover {
+  background: var(--panel);
+}
+
+                                  
+.folderExpandBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--muted);
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.folderExpandBtn:hover {
+  color: var(--text);
+}
+
+.folderExpandBtn.expanded {
+  transform: rotate(90deg);
+}
+
+.folderExpandPlaceholder {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.folderChildren {
+                          
+}
+
+                                               
+                     
+                                                  
+
+.tagList {
+  border-top: 1px solid var(--line);
+  margin-top: 8px;
+}
+
+.tagListHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+
+.tagListHeader:hover {
+  background: var(--panel2);
+}
+
+.tagListHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tagListChevron {
+  display: flex;
+  align-items: center;
+  color: var(--muted);
+  transition: transform 0.2s;
+}
+
+.tagListTitle {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tagListBadge {
+  font-size: 10px;
+  padding: 1px 6px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 10px;
+}
+
+.tagListAddBtn {
+  padding: 4px;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tagListAddBtn:hover {
+  color: var(--primary);
+  background: var(--panel2);
+}
+
+.tagListBody {
+  padding: 0 8px 8px;
+}
+
+.tagListItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+
+.tagListItem:hover {
+  background: var(--panel2);
+}
+
+.tagListItemActive {
+  background: var(--panel2);
+}
+
+.tagListItemActive .tagListItemName {
+  color: var(--primary);
+}
+
+.tagListItemDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tagListItemName {
+  flex: 1;
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tagListItemActions {
+  display: flex;
+  gap: 2px;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.tagListItem:hover .tagListItemActions {
+  opacity: 1;
+}
+
+.tagListItemBtn {
+  padding: 4px;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tagListItemBtn:hover {
+  color: var(--primary);
+  background: var(--panel);
+}
+
+.tagListItemBtnDanger:hover {
+  color: var(--danger);
+}
+
+.tagListEmpty {
+  padding: 16px 12px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.tagListEmptyBtn {
+  display: block;
+  margin: 8px auto 0;
+  padding: 6px 12px;
+  font-size: 12px;
+  background: var(--panel2);
+  border: none;
+  border-radius: 4px;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.tagListEmptyBtn:hover {
+  background: var(--panel);
+}
+
+                  
+.contextMenu {
+  position: fixed;
+  background: #1a1f2e;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 4px;
+  min-width: 120px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.contextMenuItem {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  text-align: left;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  color: var(--text);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.contextMenuItem:hover {
+  background: var(--panel2);
+}
+
+.contextMenuItemDanger {
+  color: var(--danger);
+}
+
+                                               
+                     
+                                                  
+
+.filterPanel {
+  border-top: 1px solid var(--line);
+  margin-top: auto;
+}
+
+.filterPanelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.filterPanelTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.filterBadge {
+  font-size: 10px;
+  padding: 2px 6px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 10px;
+}
+
+.filterPanelHeaderActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filterBadgeRemovable {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 4px 2px 8px;
+}
+
+.filterBadgeClose {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  color: inherit;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  flex-shrink: 0;
+}
+
+.filterBadgeClose:hover {
+  background: rgba(255, 255, 255, 0.32);
+}
+
+.filterClearLink {
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: transparent;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  transition: background 0.15s ease;
+  white-space: nowrap;
+}
+
+.filterClearLink:hover {
+  background: rgba(var(--fg-rgb), 0.08);
+}
+
+.filterPanelBody {
+  padding: 0 12px 12px;
+}
+
+.filterSection {
+  margin-bottom: 16px;
+}
+
+.filterSectionTitle {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.filterChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.filterChip {
+  padding: 4px 10px;
+  font-size: 12px;
+  background: var(--panel2);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.filterChip:hover {
+  border-color: var(--primary);
+}
+
+.filterChip.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.filterChipTag {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.filterChipTagDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.filterChipWrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  position: relative;
+}
+
+.filterChipEditBtn {
+  opacity: 0;
+  padding: 4px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.15s, color 0.15s;
+}
+
+.filterChipWrapper:hover .filterChipEditBtn {
+  opacity: 1;
+}
+
+.filterChipEditBtn:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.filterDateRange,
+.filterAmountRange {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filterDateRange input,
+.filterAmountRange input {
+  flex: 1;
+  padding: 6px 10px;
+  font-size: 12px;
+  background: var(--panel2);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--text);
+}
+
+.filterDateSeparator,
+.filterAmountSeparator {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.filterStatusBtns {
+  display: flex;
+  gap: 8px;
+}
+
+.filterStatusBtn {
+  flex: 1;
+  padding: 6px 12px;
+  font-size: 12px;
+  background: var(--panel2);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--text);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.filterStatusBtn:hover {
+  border-color: var(--primary);
+}
+
+.filterStatusBtn.active {
+  background: rgba(106, 166, 255, 0.15);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.filterStatusBtn.inactive {
+  background: rgba(255, 106, 123, 0.15);
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.filterClearBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 8px;
+  font-size: 12px;
+  background: transparent;
+  border: 1px dashed var(--line);
+  border-radius: 6px;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.filterClearBtn:hover {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+                                               
+                     
+                                                  
+
+              
+.invoiceListEmpty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 48px;
+  text-align: center;
+}
+
+.invoiceListEmptyIcon {
+  color: var(--muted);
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.invoiceListEmptyText {
+  font-size: 16px;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.invoiceListEmptyHint {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+                       
+.invoiceList {
+  width: 100%;
+}
+
+.invoiceListHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: var(--muted);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 4px;
+}
+
+.invoiceListHeaderText {
+  cursor: pointer;
+  user-select: none;
+}
+
+.invoiceListHeaderText:hover {
+  color: var(--text);
+}
+
+.invoiceListHeaderRight {
+  margin-left: auto;
+}
+
+.invoiceListBody {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.invoiceListItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: var(--panel);
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.invoiceListItem:hover {
+  background: var(--panel2);
+}
+
+.invoiceListItemActive {
+  background: rgba(106, 166, 255, 0.08);
+  border: 1px solid rgba(106, 166, 255, 0.3);
+}
+
+.invoiceListItemActive .invoiceListItemName {
+  color: var(--primary);
+}
+
+.invoiceListItemSelected {
+  background: rgba(106, 166, 255, 0.06);
+}
+
+.invoiceListItemMain {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.invoiceListItemTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.invoiceListItemName {
+  flex: 1;
+  min-width: 0;
+  font-size: 13px;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.invoiceListItemAmount {
+  flex-shrink: 0;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.invoiceListItemBottom {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.invoiceListItemType {
+  padding: 1px 6px;
+  background: var(--panel2);
+  border-radius: 4px;
+  font-size: 11px;
+}
+
+.invoiceListItemReimb {
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+}
+
+.invoiceListItemReimb--draft {
+  background: rgba(160, 160, 160, 0.12);
+  color: #999;
+  border: 1px solid rgba(160, 160, 160, 0.25);
+}
+
+.invoiceListItemReimb--pending_payment {
+  background: rgba(250, 200, 60, 0.12);
+  color: #e0b230;
+  border: 1px solid rgba(250, 200, 60, 0.25);
+}
+
+.invoiceListItemReimb--paid {
+  background: rgba(74, 222, 128, 0.12);
+  color: #4ade80;
+  border: 1px solid rgba(74, 222, 128, 0.25);
+}
+
+.invoiceListItemDate {
+  font-size: 11px;
+}
+
+               
+.tableCheckbox {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--line);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.tableCheckbox:hover {
+  border-color: var(--primary);
+}
+
+.tableCheckbox.checked {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.tableCheckbox.indeterminate {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+                    
+.sortIndicator {
+  display: inline-flex;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+                  
+.categoryBadge {
+  font-size: 11px;
+  padding: 2px 8px;
+  background: var(--panel2);
+  border-radius: 10px;
+  color: var(--text);
+}
+
+                 
+.statusBadge {
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  background: var(--panel2);
+  color: var(--muted);
+}
+
+.statusBadge.verified {
+  background: rgba(74, 222, 128, 0.15);
+  color: #4ade80;
+}
+
+.statusBadge.reimbursed {
+  background: rgba(106, 166, 255, 0.15);
+  color: var(--primary);
+}
+
+                  
+.invoiceTableTag {
+  display: inline-block;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  color: #fff;
+  margin-right: 4px;
+}
+
+.invoiceTableTagMore {
+  font-size: 10px;
+  color: var(--muted);
+}
+
+                  
+.invoiceTableDeleteBtn {
+  padding: 6px;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  border-radius: 4px;
+  opacity: 0;
+  transition: all 0.15s;
+}
+
+.invoiceTableRow:hover .invoiceTableDeleteBtn {
+  opacity: 1;
+}
+
+.invoiceTableDeleteBtn:hover {
+  color: var(--danger);
+  background: rgba(255, 106, 123, 0.1);
+}
+
+                  
+.invoiceCardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.invoiceCard {
+  position: relative;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.invoiceCard:hover {
+  border-color: var(--primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.invoiceCardActive {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(106, 166, 255, 0.3);
+}
+
+.invoiceCardSelected {
+  background: rgba(106, 166, 255, 0.1);
+}
+
+.invoiceCardCheckbox {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--line);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--panel);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.invoiceCardSelected .invoiceCardCheckbox {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.invoiceCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding-left: 28px;
+}
+
+.invoiceCardType {
+  font-size: 11px;
+  padding: 2px 8px;
+  background: var(--panel2);
+  border-radius: 10px;
+  color: var(--text);
+}
+
+.invoiceCardBadge {
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 10px;
+}
+
+.invoiceCardBadge.verified {
+  background: rgba(74, 222, 128, 0.15);
+  color: #4ade80;
+}
+
+.invoiceCardBadge.reimbursed {
+  background: rgba(106, 166, 255, 0.15);
+  color: var(--primary);
+}
+
+.invoiceCardAmount {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.invoiceCardInfo {
+  margin-bottom: 12px;
+}
+
+.invoiceCardFileName {
+  font-size: 13px;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 4px;
+}
+
+.invoiceCardDate {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.invoiceCardTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.invoiceCardTag {
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.invoiceCardTagMore {
+  font-size: 10px;
+  color: var(--muted);
+  padding: 2px 6px;
+}
+
+.invoiceCardDeleteBtn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 6px;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  border-radius: 4px;
+  opacity: 0;
+  transition: all 0.15s;
+}
+
+.invoiceCard:hover .invoiceCardDeleteBtn {
+  opacity: 1;
+}
+
+.invoiceCardDeleteBtn:hover {
+  color: var(--danger);
+  background: rgba(255, 106, 123, 0.1);
+}
+
+                                               
+                     
+                                                  
+
+.invoiceDetail {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+}
+
+.invoiceDetailEmpty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--muted);
+}
+
+.invoiceDetailEmptyIcon {
+  margin-bottom: 12px;
+  opacity: 0.5;
+}
+
+.invoiceDetailEmptyText {
+  font-size: 14px;
+}
+
+                  
+.invoiceDetailPreview {
+  width: 100%;
+  height: 280px;
+  background: var(--panel2);
+  border-radius: 8px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+.invoiceDetailPreviewPlaceholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+                                   
+.detailPreview {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.detailPreviewViewport {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.detailPreviewViewport img {
+  object-fit: contain;
+}
+
+.detailPreviewPlaceholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.detailPreviewToolbar {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  gap: 4px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
+  padding: 4px;
+}
+
+.detailPreviewToolbar button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.detailPreviewToolbar button:hover:not(:disabled) {
+  background: rgba(var(--fg-rgb), 0.15);
+}
+
+.detailPreviewToolbar button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+                  
+.invoiceDetailSection {
+  margin-bottom: 20px;
+}
+
+.invoiceDetailSectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.invoiceDetailSectionTitle.invoiceDetailCollapsible {
+  cursor: pointer;
+  padding: 6px 8px;
+  margin: -6px -8px 6px -8px;
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+
+.invoiceDetailSectionTitle.invoiceDetailCollapsible:hover {
+  background: var(--panel2);
+}
+
+.invoiceDetailEditBtn {
+  margin-left: auto;
+  padding: 4px;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.invoiceDetailEditBtn:hover {
+  color: var(--primary);
+  background: var(--panel2);
+}
+
+                  
+.invoiceDetailGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.invoiceDetailField {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.invoiceDetailField label {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.invoiceDetailField span {
+  font-size: 13px;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.invoiceDetailFieldFull {
+  grid-column: 1 / -1;
+}
+
+.invoiceDetailCategorySelect {
+  position: relative;
+  display: inline-block;
+}
+
+.invoiceDetailCategoryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  background: var(--panel2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 13px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.invoiceDetailCategoryBtn:hover {
+  border-color: var(--primary);
+  background: var(--panel);
+}
+
+.invoiceDetailCategoryBtn svg {
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+.invoiceDetailCategoryDropdown {
+  min-width: 140px;
+  z-index: 20;
+}
+
+.invoiceDetailEditableSpan {
+  cursor: text;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s, background 0.15s;
+  padding: 1px 2px;
+  border-radius: 3px;
+}
+
+.invoiceDetailEditableSpan:hover {
+  border-bottom-color: var(--primary);
+  background: var(--panel2);
+}
+
+.invoiceDetailInlineInput {
+  width: 100%;
+  padding: 2px 6px;
+  background: var(--panel);
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+  color: var(--text);
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+}
+
+.invoiceDetailInlineInput:focus {
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary) 25%, transparent);
+}
+
+.invoiceDetailInlineInputAmount {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.invoiceDetailAmount {
+  font-size: 18px !important;
+  font-weight: 600;
+  color: var(--primary) !important;
+}
+
+                     
+.invoiceDetailStatus {
+  display: flex;
+  gap: 16px;
+}
+
+.invoiceDetailCheckbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.invoiceDetailCheckbox input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--primary);
+}
+
+                  
+.invoiceDetailFolderSelect {
+  position: relative;
+}
+
+.invoiceDetailDropdownBtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 12px;
+  background: var(--panel2);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.invoiceDetailDropdownBtn:hover {
+  border-color: var(--primary);
+}
+
+.invoiceDetailDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 150px;
+  margin-top: 4px;
+  background: var(--dropdown-bg);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 4px;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+[data-theme-family="light"] .invoiceDetailDropdown {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.invoiceDetailDropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.invoiceDetailDropdownItem:hover {
+  background: var(--panel2);
+}
+
+.invoiceDetailDropdownItem.active {
+  background: var(--panel2);
+  color: var(--primary);
+}
+
+.invoiceDetailDropdownTagColor {
+  width: 12px;
+  height: 12px;
+  min-width: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.invoiceDetailDropdownEmpty {
+  padding: 12px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+            
+.invoiceDetailTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.invoiceDetailTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 16px;
+  color: #fff;
+}
+
+.invoiceDetailTagRemove {
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  opacity: 0.7;
+  display: flex;
+  align-items: center;
+}
+
+.invoiceDetailTagRemove:hover {
+  opacity: 1;
+}
+
+.invoiceDetailTagAdd {
+  position: relative;
+}
+
+.invoiceDetailTagAddBtn {
+  padding: 4px 10px;
+  font-size: 12px;
+  background: transparent;
+  border: 1px dashed var(--line);
+  border-radius: 16px;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.invoiceDetailTagAddBtn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+            
+.invoiceDetailNotes {
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.invoiceDetailNotes .muted {
+  color: var(--muted);
+}
+
+.invoiceDetailNotesEdit textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 13px;
+  background: var(--panel2);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--text);
+  resize: vertical;
+  font-family: inherit;
+}
+
+.invoiceDetailNotesEdit textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.invoiceDetailNotesActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.invoiceDetailNotesActions button {
+  padding: 6px 12px;
+  font-size: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.invoiceDetailNotesActions button:first-child {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--text);
+}
+
+.invoiceDetailNotesActions button.primary {
+  background: var(--primary);
+  border: none;
+  color: #fff;
+}
+
+              
+.invoiceDetailMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 11px;
+  color: var(--muted);
+}
+
+                                               
+                  
+                                                  
+
+.dialogOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.dialog {
+  background: #1a1f2e;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.dialogHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.dialogTitle {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.dialogCloseBtn {
+  padding: 4px 8px;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.dialogCloseBtn:hover {
+  color: var(--text);
+  background: var(--panel2);
+}
+
+.dialogBody {
+  padding: 20px;
+}
+
+.dialogField {
+  margin-bottom: 16px;
+}
+
+.dialogField:last-child {
+  margin-bottom: 0;
+}
+
+.dialogField label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.dialogField input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--text);
+  box-sizing: border-box;
+}
+
+.dialogField input:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.dialogField select,
+.dialogField textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--text);
+  box-sizing: border-box;
+}
+
+.dialogField select {
+  cursor: pointer;
+}
+
+.dialogField select:focus,
+.dialogField textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.dialogField select option {
+  background: #1a1f2e;
+  color: var(--text);
+}
+
+.dialogSelect {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--text);
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.dialogSelect:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.dialogSelect option {
+  background: #1a1f2e;
+  color: var(--text);
+}
+
+.dialogFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 20px;
+  border-top: 1px solid var(--line);
+}
+
+.dialogFooter button {
+  padding: 8px 16px;
+  font-size: 13px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.dialogFooter button:first-child {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--text);
+}
+
+.dialogFooter button.primary {
+  background: var(--primary);
+  border: none;
+  color: #fff;
+}
+
+.dialogFooter button.primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.dialogFooter button.danger {
+  background: var(--danger);
+  border: none;
+  color: #fff;
+}
+
+.dialogFooter button.danger:hover {
+  opacity: 0.9;
+}
+
+                    
+.colorPicker {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.colorPickerItem {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.colorPickerItem:hover {
+  transform: scale(1.1);
+}
+
+.colorPickerItem.active {
+  border-color: #fff;
+  box-shadow: 0 0 0 2px var(--primary);
+}
+
+                                
+.moveToFolderDialog {
+  width: 360px;
+}
+
+.dialogSubtitle {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--muted);
+  margin-left: 8px;
+}
+
+.folderSelectList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.folderSelectItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.folderSelectItem:hover {
+  background: var(--panel2);
+}
+
+.folderSelectItem.active {
+  background: rgba(106, 166, 255, 0.1);
+  color: var(--primary);
+}
+
+.folderSelectIcon {
+  display: flex;
+  align-items: center;
+  color: var(--muted);
+}
+
+.folderSelectItem.active .folderSelectIcon {
+  color: var(--primary);
+}
+
+.folderSelectName {
+  flex: 1;
+  font-size: 14px;
+}
+
+.folderSelectCheck {
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+}
+
+.folderSelectCreate {
+  border-top: 1px solid var(--line);
+  margin-top: 8px;
+  padding-top: 12px;
+  color: var(--muted);
+}
+
+.folderSelectCreate:hover {
+  color: var(--primary);
+}
+
+.folderSelectCreate .folderSelectIcon {
+  color: inherit;
+}
+
+                        
+.invoiceListItem[draggable="true"],
+.invoiceCard[draggable="true"] {
+  cursor: grab;
+}
+
+.invoiceListItem[draggable="true"]:active,
+.invoiceCard[draggable="true"]:active {
+  cursor: grabbing;
+}
+
+                                               
+                  
+                                                  
+
+@media (max-width: 1500px) {
+  .archivePage {
+    grid-template-columns: 180px minmax(0, 1fr) minmax(0, 380px);
+  }
+}
+
+@media (max-width: 1280px) {
+  .archivePage {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 320px);
+    grid-template-areas:
+      "filter detail"
+      "list   detail";
+  }
+
+  .archiveFolderPanel {
+    display: none !important;
+  }
+
+  .archiveFilterPanel .filterPanelBody {
+    gap: 12px;
+  }
+
+  .archiveFilterPanel .filterSection {
+    min-width: 150px;
+  }
+
+  .archiveFilterPanel .panelHeader {
+    flex-wrap: wrap;
+    row-gap: 8px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .archivePage {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+      "filter"
+      "list"
+      "detail";
+  }
+
+  .archiveFilterPanel .panelHeaderRight {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+                                               
+                  
+                                                  
+
+.settingsContent {
+  padding: 20px;
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.settingsSection {
+  margin-bottom: 28px;
+  width: 100%;
+  min-width: 0;
+}
+
+.settingsSection:last-child {
+  margin-bottom: 0;
+}
+
+.settingsSectionHeader {
+  margin-bottom: 12px;
+}
+
+.settingsSectionTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.settingsSectionDesc {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.settingsHint {
+  font-size: 13px;
+  color: var(--muted);
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(106, 166, 255, 0.06);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.settingsChipGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+button.settingsChip {
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  background: rgba(var(--fg-rgb), 0.05);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+button.settingsChip:hover {
+  background: rgba(var(--fg-rgb), 0.1);
+  border-color: rgba(var(--fg-rgb), 0.18);
+  color: var(--text);
+}
+
+button.settingsChipActive {
+  background: rgba(106, 166, 255, 0.15);
+  border-color: rgba(106, 166, 255, 0.5);
+  color: var(--primary);
+}
+
+button.settingsChipActive:hover {
+  background: rgba(106, 166, 255, 0.2);
+}
+
+.settingsDangerRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 106, 123, 0.2);
+  border-radius: 10px;
+  background: rgba(255, 106, 123, 0.04);
+}
+
+.settingsAboutFeature {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: rgba(var(--fg-rgb), 0.03);
+  font-size: 13px;
+  color: var(--text);
+}
+
+.settingsFormatBadge {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  background: rgba(106, 166, 255, 0.12);
+  color: var(--primary);
+  letter-spacing: 0.3px;
+}
+
+.settingsConfigCard {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(var(--fg-rgb), 0.03);
+}
+
+.settingsToggleRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(var(--fg-rgb), 0.03);
+  cursor: pointer;
+  user-select: none;
+  transition: background 120ms ease;
+}
+
+.settingsToggleRow:hover {
+  background: rgba(var(--fg-rgb), 0.06);
+}
+
+.settingsToggle {
+  width: 36px;
+  height: 20px;
+  border-radius: 10px;
+  background: rgba(var(--fg-rgb), 0.15);
+  position: relative;
+  flex-shrink: 0;
+  transition: background 200ms ease;
+}
+
+.settingsToggleOn {
+  background: var(--primary);
+}
+
+.settingsToggleThumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 200ms ease;
+}
+
+.settingsToggleOn .settingsToggleThumb {
+  transform: translateX(16px);
+}
+
+.postImportClassifyDialog {
+  width: 460px;
+  max-width: 90vw;
+}
+
+.postImportClassifyHint {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.postImportClassifyList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 320px;
+  overflow-y: auto;
+  padding: 4px 2px;
+}
+
+.postImportClassifyItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background: var(--panel2);
+}
+
+.postImportClassifyItemMain {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.postImportClassifyItemName {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.postImportClassifyItemCount {
+  font-size: 12px;
+  color: var(--primary);
+  background: rgba(106, 166, 255, 0.12);
+  border-radius: 10px;
+  padding: 2px 10px;
+}
+
+.postImportClassifyItemHint {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.postImportClassifySummary {
+  margin-top: 14px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  background: rgba(106, 166, 255, 0.08);
+  font-size: 12px;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.postImportClassifySummary strong {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.dialogFooter.postImportClassifyFooter {
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.postImportClassifySecondary,
+.postImportClassifyPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.postImportClassifySecondary {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--text);
+}
+
+.postImportClassifySecondary:hover {
+  background: var(--panel2);
+}
+
+/* 重复导入高亮与定位标签样式 */
+.invoiceListItemDuplicate {
+  background: rgba(239, 68, 68, 0.05) !important;
+  border: 1px dashed rgba(239, 68, 68, 0.4) !important;
+  border-radius: 6px;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.invoiceListItemDuplicate:hover {
+  background: rgba(239, 68, 68, 0.09) !important;
+  border-color: rgba(239, 68, 68, 0.6) !important;
+}
+
+.invoiceListItemDuplicateTag {
+  background: rgba(239, 68, 68, 0.12);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.invoiceListItemLocateReimbBtn {
+  background: none;
+  border: none;
+  color: var(--primary, #6aa6ff);
+  font-size: 10px;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  margin-left: 8px;
+  transition: color 0.15s ease;
+}
+
+.invoiceListItemLocateReimbBtn:hover {
+  color: var(--primary-hover, #8cb5ff);
+}

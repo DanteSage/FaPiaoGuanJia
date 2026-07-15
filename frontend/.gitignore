@@ -1,0 +1,8 @@
+node_modules/
+dist/
+release/
+.cache/
+coverage/
+.npm-cache/
+test-results/
+.vite/

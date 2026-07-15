@@ -1,0 +1,660 @@
+﻿                                               
+
+                     
+
+                                                  
+
+
+
+:root {
+
+  --fg-rgb: 255, 255, 255;
+
+  --bg: #0b1020;
+
+  --panel: rgba(var(--fg-rgb), 0.06);
+
+  --panel2: rgba(var(--fg-rgb), 0.09);
+
+  --text: rgba(var(--fg-rgb), 0.92);
+
+  --muted: rgba(var(--fg-rgb), 0.62);
+
+  --line: rgba(var(--fg-rgb), 0.12);
+
+  --primary: #6aa6ff;
+
+  --danger: #ff6a7b;
+
+
+
+  --body-bg: radial-gradient(1200px 800px at 20% 10%, #1c2a5c 0%, var(--bg) 55%) fixed;
+
+  --topbar-bg: #131a33;
+
+  --input-bg: rgba(0, 0, 0, 0.18);
+
+  --scrollbar-thumb: rgba(var(--fg-rgb), 0.15);
+
+  --scrollbar-hover: rgba(var(--fg-rgb), 0.25);
+
+  --shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+
+  --overlay-bg: rgba(0, 0, 0, 0.55);
+
+  --bar-track: rgba(255, 255, 255, 0.06);
+
+  --dialog-bg: #1a1f2e;
+
+  --dropdown-bg: #2b2b2b;
+
+}
+
+
+
+                                               
+
+                               
+
+                                                  
+
+
+
+[data-theme="light"] {
+
+  --fg-rgb: 55, 55, 55;
+
+  --bg: #f3f3f3;
+
+  --panel: #ffffff;
+
+  --panel2: #f5f5f5;
+
+  --panel-hover: #ececec;
+
+  --text: #1e1e1e;
+
+  --muted: #616161;
+
+  --line: #e0e0e0;
+
+  --line-strong: #d5d5d5;
+
+  --input-border: #c8c8c8;
+
+  --canvas: #eaeaea;
+
+  --primary: #005fb8;
+
+  --primary-rgb: 0, 95, 184;
+
+  --danger: #c72222;
+
+  --danger-rgb: 199, 34, 34;
+
+
+
+  --body-bg: #f3f3f3;
+
+  --topbar-bg: #e8e8e8;
+
+  --input-bg: #ffffff;
+
+  --scrollbar-thumb: rgba(0, 0, 0, 0.2);
+
+  --scrollbar-hover: rgba(0, 0, 0, 0.35);
+
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+
+  --overlay-bg: rgba(0, 0, 0, 0.4);
+
+  --bar-track: rgba(0, 0, 0, 0.06);
+
+  --dialog-bg: #ffffff;
+
+  --dropdown-bg: #ffffff;
+
+}
+
+
+
+                                               
+
+           
+
+                                                  
+
+
+
+[data-theme="one-dark"] {
+
+  --fg-rgb: 171, 178, 191;
+
+  --bg: #282c34;
+
+  --panel: rgba(255, 255, 255, 0.06);
+
+  --panel2: rgba(255, 255, 255, 0.08);
+
+  --text: #abb2bf;
+
+  --muted: #5c6370;
+
+  --line: rgba(255, 255, 255, 0.1);
+
+  --primary: #61afef;
+
+  --danger: #e06c75;
+
+
+
+  --body-bg: #282c34;
+
+  --topbar-bg: #21252b;
+
+  --input-bg: rgba(0, 0, 0, 0.2);
+
+  --scrollbar-thumb: rgba(255, 255, 255, 0.12);
+
+  --scrollbar-hover: rgba(255, 255, 255, 0.22);
+
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+
+  --overlay-bg: rgba(0, 0, 0, 0.55);
+
+  --bar-track: rgba(255, 255, 255, 0.06);
+
+  --dialog-bg: #21252b;
+
+  --dropdown-bg: #2c313a;
+
+}
+
+
+
+                                               
+
+          
+
+                                                  
+
+
+
+[data-theme="monokai"] {
+
+  --fg-rgb: 248, 248, 242;
+
+  --bg: #272822;
+
+  --panel: rgba(255, 255, 255, 0.06);
+
+  --panel2: rgba(255, 255, 255, 0.08);
+
+  --text: #f8f8f2;
+
+  --muted: #75715e;
+
+  --line: rgba(255, 255, 255, 0.1);
+
+  --primary: #66d9ef;
+
+  --danger: #f92672;
+
+
+
+  --body-bg: #272822;
+
+  --topbar-bg: #1e1f1c;
+
+  --input-bg: rgba(0, 0, 0, 0.22);
+
+  --scrollbar-thumb: rgba(255, 255, 255, 0.14);
+
+  --scrollbar-hover: rgba(255, 255, 255, 0.24);
+
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+
+  --overlay-bg: rgba(0, 0, 0, 0.55);
+
+  --bar-track: rgba(255, 255, 255, 0.06);
+
+  --dialog-bg: #1e1f1c;
+
+  --dropdown-bg: #3e3d32;
+
+}
+
+
+
+                                               
+
+          
+
+                                                  
+
+
+
+[data-theme="dracula"] {
+
+  --fg-rgb: 248, 248, 242;
+
+  --bg: #282a36;
+
+  --panel: rgba(255, 255, 255, 0.06);
+
+  --panel2: rgba(255, 255, 255, 0.08);
+
+  --text: #f8f8f2;
+
+  --muted: #6272a4;
+
+  --line: rgba(255, 255, 255, 0.1);
+
+  --primary: #bd93f9;
+
+  --danger: #ff5555;
+
+
+
+  --body-bg: #282a36;
+
+  --topbar-bg: #21222c;
+
+  --input-bg: rgba(0, 0, 0, 0.2);
+
+  --scrollbar-thumb: rgba(255, 255, 255, 0.12);
+
+  --scrollbar-hover: rgba(255, 255, 255, 0.22);
+
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+
+  --overlay-bg: rgba(0, 0, 0, 0.55);
+
+  --bar-track: rgba(255, 255, 255, 0.06);
+
+  --dialog-bg: #21222c;
+
+  --dropdown-bg: #44475a;
+
+}
+
+
+
+                                               
+
+                  
+
+                                                  
+
+
+
+[data-theme="solarized-light"] {
+
+  --fg-rgb: 88, 110, 117;
+
+  --bg: #fdf6e3;
+
+  --panel: #f5efd9;
+
+  --panel2: #eee8d5;
+
+  --panel-hover: #e3dcc4;
+
+  --text: #586e75;
+
+  --muted: #93a1a1;
+
+  --line: #d6ccb2;
+
+  --line-strong: #c8be9f;
+
+  --input-border: #cfc6a8;
+
+  --canvas: #e3dcc4;
+
+  --primary: #268bd2;
+
+  --primary-rgb: 38, 139, 210;
+
+  --danger: #dc322f;
+
+  --danger-rgb: 220, 50, 47;
+
+
+
+  --body-bg: #fdf6e3;
+
+  --topbar-bg: #eee8d5;
+
+  --input-bg: #fdf6e3;
+
+  --scrollbar-thumb: rgba(101, 84, 41, 0.22);
+
+  --scrollbar-hover: rgba(101, 84, 41, 0.38);
+
+  --shadow: 0 2px 8px rgba(101, 84, 41, 0.18);
+
+  --overlay-bg: rgba(58, 47, 18, 0.35);
+
+  --bar-track: rgba(101, 84, 41, 0.08);
+
+  --dialog-bg: #fdf6e3;
+
+  --dropdown-bg: #fdf6e3;
+
+}
+
+
+
+                                               
+               
+                                                  
+
+[data-theme="github-light"] {
+  --fg-rgb: 31, 35, 40;
+  --bg: #ffffff;
+  --panel: #ffffff;
+  --panel2: #f6f8fa;
+  --panel-hover: #eaeef2;
+  --text: #1f2328;
+  --muted: #656d76;
+  --line: #d0d7de;
+  --line-strong: #d0d7de;
+  --input-border: #d0d7de;
+  --canvas: #eaeef2;
+  --primary: #0969da;
+  --primary-rgb: 9, 105, 218;
+  --danger: #cf222e;
+  --danger-rgb: 207, 34, 46;
+
+  --body-bg: #f6f8fa;
+  --topbar-bg: #f6f8fa;
+  --input-bg: #ffffff;
+  --scrollbar-thumb: rgba(0, 0, 0, 0.2);
+  --scrollbar-hover: rgba(0, 0, 0, 0.35);
+  --shadow: 0 1px 3px rgba(27, 31, 36, 0.12);
+  --overlay-bg: rgba(27, 31, 36, 0.5);
+  --bar-track: rgba(0, 0, 0, 0.05);
+  --dialog-bg: #ffffff;
+  --dropdown-bg: #ffffff;
+}
+
+                                               
+                  
+                                                  
+
+[data-theme-family="light"] body {
+  color-scheme: light;
+}
+
+                                                      
+[data-theme-family="light"] input.searchInput,
+[data-theme-family="light"] input.toolbarInput,
+[data-theme-family="light"] .configNum,
+[data-theme-family="light"] .configNumDim,
+[data-theme-family="light"] .configNumSm,
+[data-theme-family="light"] .configSelect,
+[data-theme-family="light"] .customSelectTrigger,
+[data-theme-family="light"] select.configSelectSm,
+[data-theme-family="light"] select,
+[data-theme-family="light"] textarea,
+[data-theme-family="light"] .verify-form-field input,
+[data-theme-family="light"] .verify-config-field input,
+[data-theme-family="light"] .printSelect,
+[data-theme-family="light"] .printInput {
+  background: var(--input-bg);
+  background-color: var(--input-bg);
+  border-color: var(--input-border);
+}
+
+[data-theme-family="light"] .configSelect:hover,
+[data-theme-family="light"] .customSelectTrigger:hover {
+  background-color: var(--panel-hover);
+  border-color: var(--line-strong);
+}
+
+                                        
+[data-theme-family="light"] .radioItem {
+  background: var(--panel2);
+  border-color: var(--line);
+}
+[data-theme-family="light"] .radioItem:hover {
+  background: var(--panel-hover);
+  border-color: var(--line-strong);
+}
+
+[data-theme-family="light"] .seg {
+  background: var(--canvas);
+  border-color: var(--line-strong);
+}
+
+                                     
+[data-theme-family="light"] .customSelectDropdown {
+  background: var(--dropdown-bg);
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow);
+}
+[data-theme-family="light"] .customSelectOption:hover {
+  background: var(--panel-hover);
+}
+[data-theme-family="light"] .customSelectOptionActive {
+  background: rgba(var(--primary-rgb), 0.12);
+  color: var(--primary);
+}
+[data-theme-family="light"] .configSelect option,
+[data-theme-family="light"] select.configSelectSm option,
+[data-theme-family="light"] .printSelect option {
+  background-color: var(--dropdown-bg);
+  color: var(--text);
+}
+
+                                 
+[data-theme-family="light"] .panel {
+  background: var(--panel);
+  border-color: var(--line);
+}
+[data-theme-family="light"] .panelHeader {
+  background: var(--panel2);
+}
+[data-theme-family="light"] .searchBox {
+  background: var(--panel2);
+}
+[data-theme-family="light"] .configSection {
+  background: var(--panel2);
+  border-color: var(--line);
+}
+
+                           
+[data-theme-family="light"] .previewSideBar {
+  background: var(--canvas);
+  border-color: var(--line-strong);
+}
+
+                                                                                            
+[data-theme-family="light"] .paperSheet,
+[data-theme-family="light"] .mergePreviewPaper {
+  background: #ffffff;
+  border-color: var(--line-strong);
+}
+[data-theme-family="light"] .paperSheetShadow,
+[data-theme-family="light"] .mergePreviewPaper {
+  box-shadow: var(--shadow);
+}
+[data-theme-family="light"] .paperMargins {
+  border-color: var(--input-border);
+}
+[data-theme-family="light"] .paperSplitLineH {
+  border-top-color: var(--muted);
+}
+[data-theme-family="light"] .paperSplitLineV {
+  border-left-color: var(--muted);
+}
+[data-theme-family="light"] .punchHole {
+  background: var(--input-border);
+  border-color: var(--line-strong);
+}
+
+                              
+[data-theme-family="light"] .printDialog {
+  background: var(--dialog-bg);
+  box-shadow: var(--shadow);
+}
+[data-theme-family="light"] .confirmDialog {
+  background: var(--dialog-bg);
+  backdrop-filter: none;
+  box-shadow: var(--shadow);
+}
+[data-theme-family="light"] .confirmDialogBtnConfirm {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+[data-theme-family="light"] .confirmDialogBtnConfirm:hover {
+  filter: brightness(0.9);
+  box-shadow: none;
+}
+[data-theme-family="light"] .confirmDialogBtnDanger {
+  background: var(--danger);
+  border-color: var(--danger);
+}
+[data-theme-family="light"] .confirmDialogBtnDanger:hover {
+  filter: brightness(0.9);
+  box-shadow: none;
+}
+[data-theme-family="light"] .verify-config-dialog {
+  background: var(--dialog-bg);
+}
+[data-theme-family="light"] .legalDialog {
+  background: var(--dialog-bg);
+}
+[data-theme-family="light"] .verify-config-overlay {
+  background: var(--overlay-bg);
+}
+[data-theme-family="light"] .legalDialogOverlay {
+  background: var(--overlay-bg);
+}
+
+                         
+[data-theme-family="light"] .toastContainer {
+  background: var(--panel);
+  backdrop-filter: none;
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow);
+}
+[data-theme-family="light"] .toastContainer:hover {
+  box-shadow: var(--shadow);
+}
+
+                           
+[data-theme-family="light"] .printPreview {
+  background: var(--canvas);
+  box-shadow: var(--shadow);
+}
+
+[data-theme-family="light"] .xmlPreviewFieldValue,
+[data-theme-family="light"] .xmlPreviewRawContent {
+  background: var(--panel2);
+}
+
+                              
+[data-theme-family="light"] .approvalRecordComment {
+  background: var(--panel2);
+}
+
+                                 
+[data-theme-family="light"] .verify-btn-primary {
+  background: rgba(var(--primary-rgb), 0.1);
+  border-color: rgba(var(--primary-rgb), 0.35);
+  color: var(--primary);
+}
+[data-theme-family="light"] .verify-btn-primary:hover {
+  background: rgba(var(--primary-rgb), 0.18);
+}
+
+                          
+[data-theme-family="light"] .screenshot-modal {
+  background: var(--dialog-bg);
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow);
+}
+
+                                  
+[data-theme-family="light"] button.menuItemActive {
+  border-color: rgba(var(--primary-rgb), 0.4);
+  background: rgba(var(--primary-rgb), 0.1);
+}
+
+                    
+[data-theme-family="light"] .printDialogBtnPrint {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+                        
+[data-theme-family="light"] .verify-field-amount {
+  color: var(--primary);
+}
+[data-theme-family="light"] .verify-history-amount {
+  color: var(--primary);
+}
+[data-theme-family="light"] .danger {
+  color: var(--danger);
+  border-color: rgba(var(--danger-rgb), 0.35);
+}
+[data-theme-family="light"] .configError {
+  color: var(--danger);
+  border-color: rgba(var(--danger-rgb), 0.35);
+  background: rgba(var(--danger-rgb), 0.06);
+}
+
+                                               
+                           
+                                                  
+
+                                             
+[data-theme-family="light"] .contextMenu,
+[data-theme-family="light"] .customSelect .customSelectDropdown,
+[data-theme-family="light"] .tagListDropdown {
+  background: var(--dropdown-bg);
+  box-shadow: var(--shadow);
+}
+
+                                  
+[data-theme-family="light"] .dialog {
+  background: var(--dialog-bg);
+  box-shadow: var(--shadow);
+}
+[data-theme-family="light"] .dialogOverlay {
+  background: var(--overlay-bg);
+}
+
+                                  
+[data-theme-family="light"] .dialogField input,
+[data-theme-family="light"] .dialogField select,
+[data-theme-family="light"] .dialogField textarea,
+[data-theme-family="light"] .dialogSelect {
+  background: var(--input-bg);
+  background-color: var(--input-bg);
+  border-color: var(--input-border);
+}
+[data-theme-family="light"] .dialogField input:focus,
+[data-theme-family="light"] .dialogField select:focus,
+[data-theme-family="light"] .dialogField textarea:focus,
+[data-theme-family="light"] .dialogSelect:focus {
+  background: var(--input-bg);
+  background-color: var(--input-bg);
+}
+[data-theme-family="light"] .dialogField select option,
+[data-theme-family="light"] .dialogSelect option {
+  background: var(--dropdown-bg);
+}
+
+                       
+[data-theme-family="light"] .contextMenuItem:hover {
+  background: var(--panel-hover);
+}
+
+                       
+[data-theme-family="light"] .invoiceCard:hover {
+  box-shadow: var(--shadow);
+}

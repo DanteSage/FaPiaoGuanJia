@@ -1,0 +1,15 @@
+target/
+**/target/
+bin/
+**/bin/
+*.class
+.idea/
+**/dependency-reduced-pom.xml
+.project
+**/.project
+.settings/
+**/.settings/
+${project.parent.basedir}/
+**/${project.parent.basedir}/
+**/Users/
+*.log

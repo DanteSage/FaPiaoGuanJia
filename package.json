@@ -1,0 +1,16 @@
+{
+  "name": "invoice-tool",
+  "private": true,
+  "version": "1.0.3",
+  "scripts": {
+    "start": "npm --prefix frontend run dev",
+    "build": "node scripts/build-release.js",
+    "build:rpa-component": "node scripts/build-rpa-component.js",
+    "build:frontend": "npm --prefix frontend run dist",
+    "lint": "npm --prefix frontend run lint",
+    "lint:frontend": "npm --prefix frontend run lint",
+    "test": "npm --prefix frontend test",
+    "test:frontend": "npm --prefix frontend test",
+    "verify:release": "node scripts/verify-release.js"
+  }
+}

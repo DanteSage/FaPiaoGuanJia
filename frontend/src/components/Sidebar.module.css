@@ -1,0 +1,74 @@
+                                              
+                                       
+
+.menuPanel {
+  flex: 0 0 auto;
+}
+
+.menuList {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow-y: auto;
+}
+
+.menuGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.menuGroupTitle {
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 8px 12px 4px;
+  font-weight: 600;
+}
+
+.menuItem {
+  width: 100%;
+  text-align: left;
+  text-decoration: none;
+  background: rgba(var(--fg-rgb), 0.04);
+  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  font-size: 13px;
+  transition: all 120ms ease;
+  color: inherit;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.menuItem:hover {
+  background: rgba(var(--fg-rgb), 0.08);
+  border-color: rgba(var(--fg-rgb), 0.1);
+  text-decoration: none;
+}
+
+.menuItem svg {
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.menuItemActive {
+  border-color: rgba(106, 166, 255, 0.45);
+  background: rgba(106, 166, 255, 0.16);
+}
+
+.menuItemActive svg {
+  opacity: 1;
+  color: var(--primary);
+}
+
+            
+:global([data-theme-family="light"]) .menuItemActive {
+  border-color: rgba(0, 95, 184, 0.4);
+  background: rgba(0, 95, 184, 0.1);
+}
